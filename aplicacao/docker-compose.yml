@@ -1,5 +1,13 @@
 version: "3.8"
 services:
+  app:
+    build: .
+    volumes:
+      - .:/myapp
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
   db:
     image: postgres:13
     volumes:
