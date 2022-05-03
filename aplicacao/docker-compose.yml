@@ -8,6 +8,13 @@ services:
       - '3000:3000'
     depends_on:
       - db
+  nginx:
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+    depends_on:
+      - app
   db:
     image: postgres:13
     volumes:
